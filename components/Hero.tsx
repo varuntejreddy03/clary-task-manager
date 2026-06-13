@@ -11,7 +11,6 @@ export default function Hero() {
 
   return (
     <section className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#EBF5FF] via-white to-[#E0F7FA] border border-[#E6EEF5] shadow-[0_2px_12px_rgba(0,0,0,0.04)] p-6 md:p-8">
-      {/* Decorative blobs */}
       <div className="absolute -top-16 -right-16 w-48 h-48 bg-[#1E73FF]/5 rounded-full blur-3xl" />
       <div className="absolute -bottom-12 -left-12 w-36 h-36 bg-[#008B8B]/5 rounded-full blur-2xl" />
 
@@ -24,7 +23,7 @@ export default function Hero() {
 
           <div>
             <h1 className="text-2xl md:text-3xl font-bold text-[#101828]">
-              🩺 Clary Task Manager
+              <span className="mr-1.5">🩺</span>Clary Task Manager
             </h1>
             <p className="text-[#667085] text-sm mt-2 leading-relaxed max-w-lg">
               A healthcare-inspired mini task workflow built with Next.js, Zustand, and localStorage.
@@ -58,9 +57,19 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Mascot area */}
-        <div className="hidden md:flex items-center justify-center w-36 h-36 rounded-2xl bg-gradient-to-br from-[#E0F7FA]/60 to-[#EBF5FF]/60 border border-[#E6EEF5] shrink-0">
-          <span className="text-6xl">🩺</span>
+        {/* Clary mascot */}
+        <div className="hidden md:flex items-center justify-center w-32 h-32 rounded-2xl bg-gradient-to-br from-[#E0F7FA]/60 to-[#EBF5FF]/60 border border-[#E6EEF5] shrink-0 p-3">
+          <Image
+            src="/clary-mascot.png"
+            alt="Clary Mascot"
+            width={96}
+            height={96}
+            className="object-contain"
+            onError={(e) => {
+              (e.target as HTMLImageElement).style.display = "none";
+              (e.target as HTMLImageElement).parentElement!.innerHTML = '<span style="font-size:3rem">🩺</span>';
+            }}
+          />
         </div>
       </div>
     </section>

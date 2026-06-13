@@ -10,6 +10,8 @@ import TaskList from "@/components/TaskList";
 import SkillProof from "@/components/SkillProof";
 import ComponentBreakdown from "@/components/ComponentBreakdown";
 import LocalStorageViewer from "@/components/LocalStorageViewer";
+import HowItWorks from "@/components/HowItWorks";
+import TechDecisions from "@/components/TechDecisions";
 
 export default function Home() {
   const hasHydrated = useTaskStore((s) => s.hasHydrated);
@@ -27,7 +29,6 @@ export default function Home() {
 
   return (
     <AppShell>
-      {/* Hero - full width */}
       <Hero />
 
       {/* Two-column layout */}
@@ -45,6 +46,8 @@ export default function Home() {
             <TaskList />
           </section>
 
+          <HowItWorks />
+          <TechDecisions />
           <LocalStorageViewer />
         </div>
 

@@ -60,6 +60,17 @@
 
 ---
 
+## 💾 Data Persistence
+
+This app uses **Zustand persist middleware** to store all tasks and the active filter in the browser's `localStorage`.
+
+- Store key: `clary-task-store`
+- **Tasks survive page refresh** — no data is lost
+- The `LocalStorageViewer` component provides visible proof in the UI
+- Hydration is handled safely using `onRehydrateStorage` callback to prevent Next.js SSR mismatch
+
+---
+
 ## 🏗 Architecture
 
 ### File Structure
@@ -130,20 +141,11 @@ interface TaskStore {
 
 ---
 
-## 💾 localStorage Persistence
-
-- Zustand's `persist` middleware serializes state to `localStorage` under key: **`clary-task-store`**
-- On page load, the middleware auto-rehydrates state from localStorage
-- `hasHydrated` flag prevents rendering before rehydration completes (avoids Next.js SSR mismatch)
-- The **LocalStorageViewer** component provides visible proof that data persists
-
----
-
 ## 🚀 Getting Started
 
 ```bash
 # Clone the repo
-git clone https://github.com/<your-username>/clary-task-manager.git
+git clone https://github.com/varuntejreddy03/clary-task-manager.git
 cd clary-task-manager
 
 # Install dependencies
@@ -195,7 +197,7 @@ Open **http://localhost:3000**
 
 ## 👤 Author
 
-Built by **Varun** for the AskFirst · Clary Team React Engineer position.
+Built by **VarunTej Reddy N** for the AskFirst · Clary Team React Engineer position.
 
 ---
 

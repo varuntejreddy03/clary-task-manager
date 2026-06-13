@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useTaskStore } from "@/store/useTaskStore";
 import TaskItem from "./TaskItem";
 
@@ -18,8 +19,18 @@ export default function TaskList() {
 
   if (tasks.length === 0) {
     return (
-      <div className="text-center py-14">
-        <div className="text-5xl mb-3">🩺</div>
+      <div className="flex flex-col items-center justify-center py-10 min-h-[220px]">
+        <Image
+          src="/clary-mascot.png"
+          alt="Clary"
+          width={56}
+          height={56}
+          className="object-contain mb-3 opacity-70"
+          onError={(e) => {
+            (e.target as HTMLImageElement).style.display = "none";
+          }}
+        />
+        <p className="text-3xl mb-2">📋</p>
         <p className="text-[#667085] text-sm">No tasks yet. Add your first task.</p>
       </div>
     );
@@ -27,7 +38,7 @@ export default function TaskList() {
 
   if (filtered.length === 0) {
     return (
-      <div className="text-center py-10">
+      <div className="flex flex-col items-center justify-center py-8 min-h-[180px]">
         <p className="text-[#667085] text-sm">No matching tasks for this filter.</p>
       </div>
     );
